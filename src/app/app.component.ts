@@ -10,21 +10,39 @@ import { TodoDataService } from './todo-data.service';
 })
 export class AppComponent {
 
-  newTodo: Todo = new Todo();
+// No longer needed, now handled by TodoListHeaderComponent
+  //newTodo: Todo = new Todo();
 
   constructor(private todoDataService: TodoDataService) {
   }
 
-  addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+// No longer needed, now handled by TodoListHeaderComponent
+
+//addTodo() {
+//  this.todoDataService.addTodo(this.newTodo);
+//  this.newTodo = new Todo();
+//}
+
+//toggleTodoComplete(todo: Todo) {
+//  this.todoDataService.toggleTodoComplete(todo);
+//}
+
+//removeTodo(todo: Todo) {
+//  this.todoDataService.deleteTodoById(todo.id);
+//}
+
+  // rename from addTodo
+  onAddTodo(todo: Todo){
+    this.todoDataService.addTodo(todo);
   }
 
-  toggleTodoComplete(todo) {
+  // rename from toggleTodoComplete
+  onToggleTodoComplete(todo: Todo) {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo) {
+  // rename from removeTodo
+  onRemoveTodo(todo: Todo) {
     this.todoDataService.deleteTodoById(todo.id);
   }
 

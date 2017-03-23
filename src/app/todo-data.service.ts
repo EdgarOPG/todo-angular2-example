@@ -22,8 +22,9 @@ export class TodoDataService {
 
   //filter returns all todos that NOT match with the id passed on params
   deleteTodoById(id: number): TodoDataService{
-    this.todos = this.todos
-      .filter(todo => todo.id !== id);
+// Arrow function return itself one time than is modified by the condition
+// and filter is a javascript function that require a param function to returns something
+    this.todos = this.todos.filter(todo => todo.id !== id);
     return this;
   }
 
@@ -47,7 +48,7 @@ export class TodoDataService {
       .pop();
   }
 
-//this type of function is equivalent to void functions
+//this type of function is equivalent to a void function
   toggleTodoComplete(todo: Todo){
       let updatedTodo = this.updateTodoById(todo.id, {
         complete: !todo.complete
